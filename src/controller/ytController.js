@@ -1,9 +1,9 @@
 // youtubeApi.js
 const axios = require("axios");
-
+require('dotenv').config()
 // Your API key and channel ID
-const API_KEY = "AIzaSyABgMgvkQEMIaetgJG1WcN-_h7Umw3joCw";
-const CHANNEL_ID = "UCwCw93zvbrk64DDjf8m3YaQ";
+const API_KEY =process.env.API_KEY
+const CHANNEL_ID = process.env.CHANNEL_ID
 // Function to get latest videos from the channel
 exports.getChannelVideos = async (req, res, next) => {
     const uploadsPlaylistId = CHANNEL_ID.replace(/^UC/, 'UU');

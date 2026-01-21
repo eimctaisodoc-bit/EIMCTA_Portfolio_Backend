@@ -1,5 +1,5 @@
 const express = require("express")
-require("dotenv").config({ path: './src/.env' })
+require("dotenv").config()
 const connectDB = require('./config/db');
 const cors = require('cors')
 const CookieParser = require('cookie-parser')
@@ -61,7 +61,7 @@ app.use('/youtube', require('./router/ytRouter'))
 console.log(process.env.PORT)
 
 // Start server
-// app.listen(PORT, () => {
-// console.log(`Server running on http://localhost:${PORT}`);
-// });
-module.exports=app;
+app.listen(PORT, () => {
+console.log(`Server running on http://localhost:${PORT}`);
+});
+// module.exports=app;
