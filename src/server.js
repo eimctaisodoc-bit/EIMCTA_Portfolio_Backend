@@ -51,7 +51,10 @@ app.use(session({
 }));
 
 
-app.use('/', UserRouter)
+app.use('/adv', UserRouter)
+app.get('/', (req, res) => {
+  res.send('backend server is running');
+});
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/facebook', require('./router/fbRouter'))
@@ -62,6 +65,6 @@ console.log(process.env.PORT)
 
 // Start server
 // app.listen(PORT, () => {
-// console.log(`Server running on http://localhost:${PORT}`);
+//   console.log(`Server running on http://localhost:${PORT}`);
 // });
 module.exports=app;
