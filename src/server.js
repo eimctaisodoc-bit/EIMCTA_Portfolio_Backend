@@ -61,7 +61,7 @@ app.use('/youtube', require('./router/ytRouter'))
 console.log(process.env.PORT)
 
 // Start server
-app.listen(PORT, () => {
-console.log(`Server running on http://localhost:${PORT}`);
-});
-// module.exports=app;
+// app.listen(PORT, () => {
+// console.log(`Server running on http://localhost:${PORT}`);
+// });
+module.exports=app;
