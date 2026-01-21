@@ -8,7 +8,7 @@ exports.createAdvertisement = async (req, res) => {
     try {
         const data = req.body;
         console.log(data)
-        const advertisement = await Advertisement.collection.insertOne(data);
+        const advertisement = await Advertisement.create(data);
         res.status(201).json({ success: true, data: advertisement });
     } catch (error) {
         res.status(400).json({ success: false, error: error.message });
