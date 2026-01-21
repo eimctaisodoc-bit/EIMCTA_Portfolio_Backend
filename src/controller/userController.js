@@ -3,24 +3,12 @@ const mongoose = require('mongoose');
 const Advertisement = require('../model/usermodel');
 const axios = require('axios');
 require('dotenv').config();
-const sampleData = {
-    id: "6412ab34cd56ef7890123456", // example MongoDB _id
-    title: "Winter Sale 2026",
-    description: "Up to 50% off on selected products.",
-    highlightsTopics: "Seasonal Offers",
-    images: [
-        "https://example.com/images/jacket.jpg",
-    ],
-    highlightsList: ["Discounts on jackets", "Buy 1 Get 1 on scarves", ""],
-    offerTitle: "Limited Time Offer",
-    offerDescription: "Offer valid until January 31, 2026.",
-    offerDate: new Date("2026-01-31"), // Assuming formatDate is defined
-};
+
 exports.createAdvertisement = async (req, res) => {
     try {
-        // const data = req.body;
+        const data = req.body;
         console.log(data)
-        const advertisement = await Advertisement.create(sampleData);
+        const advertisement = await Advertisement.create(data);
         res.status(201).json({ success: true, data: advertisement });
     } catch (error) {
         res.status(400).json({ success: false, error: error.message });
