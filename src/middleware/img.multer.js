@@ -2,15 +2,16 @@ const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
 
-// Upload folder
-const uploadDir = path.join(__dirname, "uploads");
-console.log('Running,',uploadDir)
+// Use /tmp for serverless writable storage
+const uploadDir = path.join("/tmp", "uploads");
+// console.log("Running,", uploadDir);
+
 // Create folder if it doesn't exist
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
-  console.log(`Folder created at ${uploadDir}`);
+  // console.log(`Folder created at ${uploadDir}`);
 } else {
-  console.log(`Folder already exists at ${uploadDir}`);
+  // console.log(`Folder already exists at ${uploadDir}`);
 }
 
 const storage = multer.diskStorage({
